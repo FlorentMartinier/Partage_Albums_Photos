@@ -6,4 +6,5 @@ public class Lieu extends Ressource{
 	public Lieu(String nom){
 		super(nom);
 	}
+
 }

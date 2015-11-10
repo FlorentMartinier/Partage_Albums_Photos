@@ -15,13 +15,13 @@ public class Photo {
 	private List <Personne> personne; // personnes tagées sur la photo
 	private List <Objet> objet;
 	
-	public Photo(Utilisateur createur, String nom, Date date, String description){
+	public Photo(Utilisateur createur, String nom, Date date, String description, String lieu){
 		this.createur = createur;
 		this.partage = new ArrayList ();
 		this.nom = nom;
 		this.date = date;
 		this.description = description;
-		this.lieu = new Lieu ();
+		this.lieu = new Lieu(lieu);
 		this.personne = new ArrayList ();
 		this.objet = new ArrayList();
 	}
@@ -51,8 +51,16 @@ public class Photo {
 	}
 	
 	public void modifier (String nom, String description, Lieu lieu){
-		this.nom = nom;
+		this.setNom(nom);
 		this.description = description;
 		this.lieu = lieu;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 }

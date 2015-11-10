@@ -23,4 +23,8 @@ public class Ressource {
 		return true;
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
 }

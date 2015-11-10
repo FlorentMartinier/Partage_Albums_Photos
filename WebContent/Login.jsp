@@ -16,6 +16,7 @@
     	<input type="password" name= "password"/>
     	<input type="submit" text="Envoyer"/>
 	</form>
+	<a href="CreationCompte.jsp">Pas de compte? Faite en un ici.</a>
 </body>
 </html>
 </jsp:root>
