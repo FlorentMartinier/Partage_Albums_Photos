@@ -1,9 +1,5 @@
 package model;
 
-public class Objet extends Ressource{
+public class Objet {
 
-	public Objet(String nom) {
-		super(nom);
-	}
-	
 }

@@ -26,9 +26,4 @@ public class Utilisateur {
 		this.mail = mail;
 		this.password = password;
 	}
-
-	public String getNom() {
-		return nom;
-	}
-
 }
