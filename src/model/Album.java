@@ -4,7 +4,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Album {
+	@Id
+	@GeneratedValue
+	private int id;
+	
+	@ManyToOne
 	private Utilisateur createur;
 	private List<Utilisateur> partage; // liste d'utilisateur à qui l'album est partagé
 	private List<Photo> photos;

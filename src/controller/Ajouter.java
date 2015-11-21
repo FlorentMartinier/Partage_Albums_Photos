@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Ajouter
  */
-@WebServlet("/j_Ajouter")
+@WebServlet("/Ajouter")
 public class Ajouter extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
