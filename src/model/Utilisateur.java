@@ -2,7 +2,10 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.Id;
+
 public class Utilisateur {
+	@Id
 	private String nom;
 	private String mail;
 	private String password;

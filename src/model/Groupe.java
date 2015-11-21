@@ -2,7 +2,11 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.Id;
+
 public class Groupe extends Ressource {
+	@Id
+	private int id;
 	private String nom;
 	private List<Personne> membres;
 	
