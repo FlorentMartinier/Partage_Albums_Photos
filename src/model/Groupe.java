@@ -23,3 +23,4 @@ public class Groupe extends Ressource {
 		return this;
 	}
 }
+

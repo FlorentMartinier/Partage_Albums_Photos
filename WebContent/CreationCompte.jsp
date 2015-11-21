@@ -7,8 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <form>
-        
+    <form method="post" action="j_CreationCompte">
+        <input type="text" name="username" required/>
+        <input type="password" name="password" required/>
+        <input type="email" name="e-mail" required/>
+        <input type="submit" text="Envoyer"/>
     </form>
 </body>
 </html>

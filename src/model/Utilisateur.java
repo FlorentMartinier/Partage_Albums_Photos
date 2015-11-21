@@ -30,5 +30,4 @@ public class Utilisateur {
 	public String getNom() {
 		return nom;
 	}
-
 }
