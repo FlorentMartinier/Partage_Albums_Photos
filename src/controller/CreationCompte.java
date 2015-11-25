@@ -39,7 +39,7 @@ public class CreationCompte extends HttpServlet {
 		
 		 if(bd.read(username) != null){	//on vérifie si le nom existe déja dans la base
 			 //TODO on renvois a la page de création ave une erreur affiher
-			 
+			 response.sendRedirect("/CreationCompte.jsp");
 		 } else {
 			 //on creer et sauvegarde le compte
 			 Utilisateur ut = new Utilisateur(username, mail, password);

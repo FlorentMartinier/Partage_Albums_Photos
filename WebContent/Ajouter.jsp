@@ -11,8 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" action="j_Ajouter">
-		<input type="file" accept=".jpg,.jpeg,.png"/>
+	<form method="post" action="j_Ajouter" enctype="multipart/form-data">
+		<input type="file" name="photos" accept=".jpg,.jpeg,.png"/>
 		<input type="submit" text="Envoyer"/>
 	</form>
 </body>

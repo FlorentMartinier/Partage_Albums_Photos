@@ -33,4 +33,8 @@ public class Utilisateur {
 	public String getNom() {
 		return nom;
 	}
+	
+	public String getPassword() {
+		return password;
+	}
 }
