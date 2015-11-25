@@ -8,12 +8,14 @@
 		omit-xml-declaration="true" />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Insert title here</title>
+<title>Ajoutez un Album</title>
 </head>
 <body>
-	<form method="post" action="j_CreationAlbum">
-		<input type="text"/>
-		<input type="file" accept=".jpg,.jpeg,.png" multiple/>
+	<form method="post" action="CreationAlbum" enctype="multipart/form-data">
+		<input type="text" name="nomAlbum"/>
+		<input type="text" name="nomCreateur"/>
+		<input type="textarea" name="descriptionAlbum"/>
+		<input type="file" name="photos" accept=".jpg,.jpeg,.png" multiple/>
 		<input type="submit" text="Envoyer"/>
 	</form>
 </body>

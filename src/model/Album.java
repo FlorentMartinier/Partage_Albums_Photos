@@ -35,6 +35,17 @@ public class Album {
 		this.nbPhotos=0;
 	}
 	
+	public Album(Utilisateur createur, List photos, String nom, Date date, String description){ // créé un nouvel album vide
+		this.createur = createur;
+		this.partage = new ArrayList();
+		this.photos = photos;
+		this.nom = nom;
+		this.date = date;
+		this.description = description;
+		this.nbPhotos=0;
+	}
+	
+	
 	// Ajoute un Album dans le répertoire d'album
 	public boolean ajouter(List<Album> repertoire, Utilisateur createur, String nom, Date date, String description){
 		nbPhotos++;

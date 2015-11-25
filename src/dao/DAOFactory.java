@@ -16,6 +16,7 @@ public class DAOFactory {
 	private LieuDAO lieuDao;
 	private ObjetDAO objetDao;
 	private PersonneDAO personneDao;
+	private PhotoDAO photoDao;
 	
 	private DAOFactory() {
 		emf = Persistence.createEntityManagerFactory("DB");
@@ -73,5 +74,12 @@ public class DAOFactory {
 			personneDao=new PersonneDAO(em);
 		}
 		return personneDao;
+	}
+	
+	public PhotoDAO getPhotoDao() {
+		if (photoDao==null) {
+			photoDao=new PhotoDAO(em);
+		}
+		return photoDao;
 	}
 }
