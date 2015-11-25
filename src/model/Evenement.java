@@ -2,7 +2,13 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class Evenement extends Ressource {
+	@Id
+	@GeneratedValue
+	private int id;
 	private Date debut;
 	private Date fin;
 	

@@ -1,9 +1,13 @@
 package model;
 
-public class Lieu extends Ressource{
+import javax.persistence.Id;
+
+public class Lieu extends Ressource {
+	@Id
+	private int id;
 	private String nom;
 	
-	public Lieu(String nom){
+	public Lieu(String nom) {
 		super(nom);
 	}
 
