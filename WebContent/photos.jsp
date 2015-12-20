@@ -13,7 +13,7 @@
 <title>Photos</title>
 </head>
 <body>
-
+<a href="nav-albums.jsp">Ajouter une photo</a>
 <ul>
 <c:forEach var="photo" items="${listPhotos}">
 		 <img src="GetPhoto?nom-photo=${photo}" />

@@ -16,24 +16,24 @@
 <title>Albums</title>
 </head>
 <body>
-
-<ul>
-<c:forEach var="album" items="${listAlbums}">
-	<li>
-		 <ul><a href="Photos?album=${album.id}"><c:out value="${album.nom }"/></a></ul> 		
-		
-		<c:if test='${album.getOwner().getLogin() == connectedUser.getLogin()}'>
-			<form action="PartageAlbum">
-				<h4>Partage</h4>
-				<label for="nom">A qui : </label>
-				<input type="text" name="nom-cible"/><br/>
-				<input type="hidden" name="album" value="${album.id}" />
-				<input type="submit" text="Envoyer"/>
-			</form>
-		</c:if>
-	</li>
-</c:forEach>
-</ul>
+	<a href="creation-album.jsp">Ajouter un album</a>
+	<ul>
+		<c:forEach var="album" items="${listAlbums}">
+			<li>
+				 <ul><a href="Photos?album=${album.id}"><c:out value="${album.nom }"/></a></ul> 		
+				
+				<c:if test='${album.getOwner().getLogin() == connectedUser.getLogin()}'>
+					<form action="PartageAlbum">
+						<h4>Partage</h4>
+						<label for="nom">A qui : </label>
+						<input type="text" name="nom-cible"/><br/>
+						<input type="hidden" name="album" value="${album.id}" />
+						<input type="submit" text="Envoyer"/>
+					</form>
+				</c:if>
+			</li>
+		</c:forEach>
+	</ul>
 </body>
 </html>
 </jsp:root>

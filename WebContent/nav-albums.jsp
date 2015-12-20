@@ -6,17 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Ajout de photo</title>
 </head>
 <body>
-	<%@ 
-	 String[] dir = new java.io.File("/home/florent/workspace/ProjetAlbumsFac/WebContent/WEB-INF/albums").list( );
-	 
-	    for (int i=0; i=dir.length+1; i++) {
-	    	String s = dir[i];
-	  %>
-	    	<img src=<%@ s; %> />
-	    <%@ }%>
+	
 	<form method="post" action="AjoutPhoto" enctype="multipart/form-data">
 		<label for="nom">Nom : </label>
 		<input type="text" name="nomPhoto"><br/>

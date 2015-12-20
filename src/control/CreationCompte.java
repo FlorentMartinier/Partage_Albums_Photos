@@ -43,12 +43,12 @@ public class CreationCompte extends HttpServlet {
 			AppUserDao dao = DAOFactory.getInstance().getAppUserDao();
 			if (dao.read(login) == null) {
 				dao.create(new AppUser(nom, prenom, login, password));
-				request.getRequestDispatcher("login").forward(request, response);
+				getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 			} else {
 				request.getSession().setAttribute("login-taken-error", true);
 				response.sendRedirect("creation-compte.jsp");
-				// return error
 			}
+			
 		} catch (NullPointerException e) {
 			response.sendError(405, "MISSING PARAMETERS");
 		}

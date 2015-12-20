@@ -82,7 +82,7 @@ public class AjoutPhoto extends HttpServlet {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		Path chemin = Paths.get(p.toString()+nomPhoto);
+		//request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

@@ -58,7 +58,7 @@ public class CreationAlbum extends HttpServlet {
 			System.out.println("c'est gagné !");
 			request.getSession().setAttribute("path", p);
 		}
-		request.getRequestDispatcher("nav-albums.jsp").forward(request, response);
+		request.getRequestDispatcher("/Albums").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
