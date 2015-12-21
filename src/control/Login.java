@@ -32,13 +32,13 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		String requestedPage = "/Albums";
 		String password = request.getAttribute("password").toString();
 		String login = request.getAttribute("login").toString();
 
 		AppUser u = DAOFactory.getInstance().getAppUserDao().read(login);
-		// System.out.println(u);
+		//System.out.println(u.getLogin() + "   " + u.getPassword());
+		 System.out.println(u);
 
 		if (u != null && u.getPassword().equals(password)) {
 			System.out.println("authentification success");

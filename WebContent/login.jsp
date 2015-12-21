@@ -13,7 +13,7 @@
 <title>Connexion</title>
 </head>
 <body>
-
+<a href="creation-compte.jsp">Pas de compte ?</a>
 <c:if test="${requestScope['loginError'] eq true}">
 	<p>
 		Login et/ou mot de passe incorrects. Veuillez ressayer.

@@ -42,7 +42,9 @@ public class CreationCompte extends HttpServlet {
 			String password = attributs.get("password")[0];
 			AppUserDao dao = DAOFactory.getInstance().getAppUserDao();
 			if (dao.read(login) == null) {
-				dao.create(new AppUser(nom, prenom, login, password));
+				AppUser u = new AppUser(nom, prenom, login, password);
+				dao.create(u);
+				System.out.println(u);
 				getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 			} else {
 				request.getSession().setAttribute("login-taken-error", true);

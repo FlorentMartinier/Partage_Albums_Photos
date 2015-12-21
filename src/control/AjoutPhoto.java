@@ -45,9 +45,10 @@ public class AjoutPhoto extends HttpServlet {
 		String description="";
 		String lieu="";
 		File file = null;
+		String album = "";
 		
 		AppUser u =(AppUser)request.getSession().getAttribute("connectedUser");
-		Path p = Paths.get(UPLOAD_DIRECTORY+u.getLogin());
+		
 
 		if (!ServletFileUpload.isMultipartContent(request)) {
 			out.println("rien à uploader");
@@ -58,7 +59,7 @@ public class AjoutPhoto extends HttpServlet {
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		try {
 			List<FileItem> items = upload.parseRequest(request);
-			
+			System.out.println(items);
 			for (FileItem item : items){
 				if (item.getFieldName().equals("nomPhoto")){
 					nomPhoto = item.getString();
@@ -69,13 +70,19 @@ public class AjoutPhoto extends HttpServlet {
 				if (item.getFieldName().equals("lieu")){
 					lieu = item.getString();
 				}
+				if (item.getFieldName().equals("album-nom")){
+					album = item.getString();
+				}
+				
+				
 				if (!item.isFormField()){
+					Path p = Paths.get(UPLOAD_DIRECTORY+u.getLogin()+File.separator+album.toString());
 					File uploadDir = new File(p.toAbsolutePath().toString());
-					file = File.createTempFile("img", ".jpg", uploadDir);
-					file.renameTo(new File(file.getPath()+File.separator+"banane"));
+					file = File.createTempFile(nomPhoto, ".jpg", uploadDir);
+					file.renameTo(new File(p.toString()));
 					item.write(file);
 					
-					out.println("photo sauvee");
+					out.println("photo sauvee"  + p.toString());
 				}
 			}
 

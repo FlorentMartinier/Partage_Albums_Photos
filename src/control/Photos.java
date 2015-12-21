@@ -55,6 +55,7 @@ public class Photos extends HttpServlet {
 		System.out.println("exist: " + folder.exists());
 		List<File> photos = Arrays.asList(photosArr);
 		request.setAttribute("listPhotos", photos);
+		request.setAttribute("Album", album);
 		request.getRequestDispatcher("photos.jsp").forward(request, response);
 	}
 
