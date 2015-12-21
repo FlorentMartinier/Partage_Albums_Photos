@@ -23,6 +23,10 @@
 				 <ul><a href="Photos?album=${album.id}"><c:out value="${album.nom }"/></a></ul> 		
 				
 				<c:if test='${album.getOwner().getLogin() == connectedUser.getLogin()}'>
+					<form action="SupprimerAlbum">
+						<input type="hidden" name="albumNom" value="${album.nom}" />
+						<input type="submit" name="supprimer" value="supprimer album" />
+					</form>
 					<form action="PartageAlbum">
 						<h4>Partage</h4>
 						<label for="nom">A qui : </label>

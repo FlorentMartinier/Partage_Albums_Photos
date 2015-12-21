@@ -31,16 +31,12 @@ public class GetPhoto extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("on commence");
 		String s = request.getParameter("nom-photo");
-		System.out.println("path: " + s);
 		InputStream in = Files.newInputStream(Paths.get(s).toAbsolutePath());
 		byte[] imageData = IOUtils.toByteArray(in);
-		System.out.println("le bytearray est cree");
 		response.setContentType("image/jpg");
 		response.getOutputStream().write(imageData);
 		in.close();
-		System.out.println("c'est fini");
 	}
 
 	/**

@@ -53,4 +53,8 @@ public class Photo {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+	
+	public AppUser getOwner(){
+		return createur;
+	}
 }
