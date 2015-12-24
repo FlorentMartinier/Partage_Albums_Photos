@@ -7,19 +7,24 @@
 		doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
 		omit-xml-declaration="true" />
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>Ajoutez un Album</title>
-</head>
-<body>
-	<form action="CreationAlbum">
-		<label for="nom">Nom : </label>
-		<input type="text" name="nomAlbum"/><br/>
-		
-		<label for="description">Description : </label>
-		<input type="textarea" name="descriptionAlbum"/><br/>
-		
-		<input type="submit" text="Envoyer"/>
-	</form>
-</body>
+	<head>
+		<title>Ajoutez un Album</title>
+		<link rel="stylesheet" type="text/css" href="./styles/main.css"></link>
+	</head>
+	<body>
+		<header>
+			<p>Partage de photos en ligne</p>
+		</header>
+		<form action="CreationAlbum">
+			<h1>Creez votre album</h1>
+			<label for="nom">Nom : 
+			<input type="text" name="nomAlbum"/></label><br/>
+			
+			<label for="description">Description :
+			<input type="textarea" name="descriptionAlbum"/></label><br/>
+			
+			<input type="submit" text="Envoyer" id="submit"/>
+		</form>
+	</body>
 </html>
 </jsp:root>

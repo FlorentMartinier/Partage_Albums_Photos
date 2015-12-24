@@ -49,13 +49,11 @@ public class Photos extends HttpServlet {
 		
 		//get all photo from album
 		File folder = new File("/home/florent/workspace/ProjetAlbumsFac/WebContent/WEB-INF/albums/" + owner + "/" + nomAlbum);
-		System.out.println(folder.toString());
 		File[] photosArr = folder.listFiles();
-		System.out.println(folder.toString());
-		System.out.println("exist: " + folder.exists());
 		List<File> photos = Arrays.asList(photosArr);
 		request.setAttribute("listPhotos", photos);
 		request.setAttribute("Album", album);
+		request.setAttribute("owner", owner);
 		request.getRequestDispatcher("photos.jsp").forward(request, response);
 	}
 

@@ -37,6 +37,7 @@ public class GetPhoto extends HttpServlet {
 		response.setContentType("image/jpg");
 		response.getOutputStream().write(imageData);
 		in.close();
+		
 	}
 
 	/**

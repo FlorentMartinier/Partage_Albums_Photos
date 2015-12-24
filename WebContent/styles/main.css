@@ -1,0 +1,72 @@
+header{
+	height:200px;
+	background-image: url("featured5-1024x502.jpg");
+	text-align: center;
+	border-radius:10px;
+	border:solid;
+	font-size: 60px;
+	font-weight: bold;
+	font-family:  "Comic Sans MS", "Comic Sans", cursive;
+	text-decoration: underline;
+	margin-bottom: 20px;
+}
+
+body{
+	background-image: url("el_bg_img_5.jpg");
+}
+
+html{
+	font-family: arial;
+}
+
+form{
+	border-style: solid;
+	border-width:2px;
+	text-align: center;
+	border-radius: 10px;
+	width:400px;
+	margin:auto;
+	padding: 10px;
+	box-sizing:border-box;
+	background-image: url("11_image.jpg");
+}
+
+h1{
+	background: #d3d7cf;
+	margin:20px;
+	border-radius:10px;
+	text-align: center;
+}
+a {
+	text-align: center;
+}
+
+label{
+	display:block;
+	text-align:left;
+	margin-top: 40px;
+}
+
+input{
+	display:block;
+	float:right;
+	border-radius:10px;
+}
+
+#submit{
+	float: none;
+	margin-left:50%;
+	margin-right: 50%;
+	margin-bottom: 10px;
+	margin-top: 15%;
+	padding: 10px;
+	cursor:pointer;
+}
+
+#submit:HOVER{
+	background-color: silver;
+}
+#different{
+	border: none;
+	background: none;
+}

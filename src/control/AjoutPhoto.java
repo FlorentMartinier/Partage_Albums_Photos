@@ -46,7 +46,6 @@ public class AjoutPhoto extends HttpServlet {
 		String lieu="";
 		File file = null;
 		String album = "";
-		
 		AppUser u =(AppUser)request.getSession().getAttribute("connectedUser");
 		
 
