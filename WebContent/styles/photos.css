@@ -1,0 +1,34 @@
+@CHARSET "UTF-8";
+#different{
+	float:left;
+}
+img{
+	height: 100px;
+	width:100px;
+	border:1px double black;
+	border-radius:10px;
+	cursor: pointer;
+	-moz-transition: all 0.5s ease-in-out 0s;
+    -webkit-transition: all 0.5s ease-in-out 0s;
+    -o-transition: all 0.5s ease-in-out 0s;
+    -ms-transition: all 0.5s ease-in-out 0s;
+    transition: all 0.5s ease-in-out 0s;
+    margin-left: 20px;
+}
+img:hover{
+	height: 500px;
+	width:500px;
+	-moz-transform: scale(1.10);
+    -webkit-transform: scale(1.10);
+    -o-transform:scale(1.10);
+    -ms-transform:scale(1.10);
+    transform:scale(1.10);
+}
+#ligne{
+	display: inline;
+	float:left;
+	margin:10px;
+}
+#bouton{
+	float: left;
+}

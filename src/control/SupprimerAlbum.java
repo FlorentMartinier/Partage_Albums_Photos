@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.AlbumDao;
+import dao.DAOFactory;
+import model.Album;
 import model.AppUser;
 
 @WebServlet("/SupprimerAlbum")
@@ -20,6 +23,8 @@ public class SupprimerAlbum extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		AlbumDao dao = DAOFactory.getInstance().getAlbumDao();
+
 		String nomAlbum = request.getParameter("albumNom");
 		AppUser u =(AppUser)request.getSession().getAttribute("connectedUser");
 		String chemin = "/home/florent/workspace/ProjetAlbumsFac/WebContent/WEB-INF/albums";
@@ -36,6 +41,8 @@ public class SupprimerAlbum extends HttpServlet {
 			}
 		}
 		monAlbum.delete();
+		// TODO : effacer l'album créé en bdd
+		//dao.delete();
 		System.out.println("l'album est supprimé avec succès");
 
 	}

@@ -81,7 +81,7 @@ public class AjoutPhoto extends HttpServlet {
 					file.renameTo(new File(p.toString()));
 					item.write(file);
 					
-					out.println("photo sauvee"  + p.toString());
+					request.getRequestDispatcher("photos.jsp").forward(request, response);
 				}
 			}
 

@@ -14,6 +14,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<link rel="stylesheet" type="text/css" href="./styles/main.css"></link>
+		<link rel="stylesheet" type="text/css" href="./styles/photos.css"></link>
+		<link rel="stylesheet" type="text/css" href="./styles/modal.css"></link>
 		<title>Photos</title>
 	</head>
 	<body>
@@ -21,13 +23,18 @@
 			<p>Partage de photos en ligne</p>
 		</header>
 		<h1>Vos photos :</h1>
+		<c:if test='${connectedUser.getLogin()==owner}'>
+			<form id="different">
+				<a href="#oModal"><input type="button" name="ajouter" value="Ajouter une photo" id="bouton"/></a>
+			</form>
+		</c:if>
 		<div id="oModal" class="cModal">
  			<div>
  				<form id="different">
  					<a href="#fermer" title="Fermer la fenêtre" class="droite"><input type="button" value="x" id="bouton"/></a>
  				</form>
-				<c:if test='${connectedUser.getLogin()==owner}'>
 					<form method="post" action="AjoutPhoto" enctype="multipart/form-data">
+						<h1>Ajouter une photo</h1>
 						<label for="nom">Nom : </label>
 						<input type="text" name="nomPhoto" /><br/>
 						
@@ -44,19 +51,19 @@
 						
 						<input type="submit" value="confirmer" name="confirmer" />
 					</form>
-				</c:if>
 			</div>
 		</div>
 		<c:forEach var="photo" items="${listPhotos}">
-				<li><img src="GetPhoto?nom-photo=${photo}" /></li>
-				<br/>
+			<div id="ligne">
+				<img src="GetPhoto?nom-photo=${photo}" /><br/>
 				<c:if test='${connectedUser.getLogin()==owner}'>
-					<form action="SupprimerPhoto">
+					<form action="SupprimerPhoto" id="different">
 						<input type="hidden" name="photoNom" value="${photo}" />
 						<input type="hidden" name="albumNom" value="${Album.nom}" />
-						<input type="submit" name="supprimer" value="supprimer la photo" />
+						<input type="submit" name="supprimer" value="supprimer la photo" id="bouton" />
 					</form>
 				</c:if>
+			</div>
 		</c:forEach>
 	</body>
 </html>

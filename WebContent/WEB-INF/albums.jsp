@@ -19,6 +19,7 @@
 		<header>
 			<link rel="stylesheet" type="text/css" href="styles/main.css"></link>
 			<link rel="stylesheet" type="text/css" href="styles/albums.css"></link>
+			<link rel="stylesheet" type="text/css" href="styles/modal.css"></link>
 			<p>Partage de photos en ligne</p>
 		</header>
 		<h1>Vos albums</h1>
