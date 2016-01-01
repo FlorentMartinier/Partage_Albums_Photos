@@ -19,16 +19,16 @@ public class InitDB {
 		AppUser u2= new AppUser("titi","titi", "Jacques", "Jacques");
 
 		
-		Album a1 = new Album("Album 1",u2, "description");
+		//Album a1 = new Album("Album 1",u2, "description");
 		//Album a2=new Album("chouette",u);
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("DB");
+	/*	EntityManagerFactory emf = Persistence.createEntityManagerFactory("DB");
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(u);
 		em.persist(a1);
 		em.getTransaction().commit();
-		
+		*/
 	}
 	
 	

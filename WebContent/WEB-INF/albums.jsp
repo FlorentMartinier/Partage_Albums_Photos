@@ -36,31 +36,35 @@
 							<c:if test='${album.getOwner().getLogin() == connectedUser.getLogin()}'>
 								<form action="SupprimerAlbum" id="different">
 									<input type="hidden" name="albumNom" value="${album.nom}" />
+									<input type="hidden" name="idAlbum" value="${album.id}" />
 									<input type="submit" name="supprimer" value="supprimer album" id="bouton"/>
 								</form>
 								<form id="different">
 									<a href="#oModal"><input type="button" name="partager" value="partager" id="bouton"/></a>
 								</form>
+								
+								<div id="oModal" class="cModal">
+			  						<div>
+			  							<form id="different">
+			  								<a href="#fermer" title="Fermer la fenêtre" class="droite"><input type="button" value="x" id="bouton"/></a>
+			  							</form>
+			  							<section>
+												<form action="PartageAlbum">
+													<h1>Partage</h1>
+													<label><c:out value="${album.nom}" /></label>
+													<label for="nom">A qui : 
+													<input type="text" name="nom-cible"/></label><br/>
+													<input type="hidden" name="album" value="${album.id}" />
+													<input type="submit" text="Envoyer" id="submit"/>
+												</form>
+										</section>													
+									</div>
+								</div>
 							</c:if>
 						</div>
 					</a>
 					
-					<div id="oModal" class="cModal">
-  						<div>
-  							<form id="different">
-  								<a href="#fermer" title="Fermer la fenêtre" class="droite"><input type="button" value="x" id="bouton"/></a>
-  							</form>
-  							<section>
-									<form action="PartageAlbum">
-										<h1>Partage</h1>
-										<label for="nom">A qui : 
-										<input type="text" name="nom-cible"/></label><br/>
-										<input type="hidden" name="album" value="${album.id}" />
-										<input type="submit" text="Envoyer" id="submit"/>
-									</form>
-							</section>													
-						</div>
-					</div>
+					
 			</c:forEach>
 	</body>
 </html>

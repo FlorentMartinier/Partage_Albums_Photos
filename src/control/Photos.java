@@ -40,6 +40,9 @@ public class Photos extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String id = request.getParameter("album");
+		if (id == null){
+			id = (String) request.getAttribute("album");
+		}
 		AlbumDao dao = DAOFactory.getInstance().getAlbumDao();
 		Album album = dao.read(Integer.parseInt(id));
 		String owner = album.getOwner().getLogin();

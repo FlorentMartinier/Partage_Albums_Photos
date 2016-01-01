@@ -29,18 +29,19 @@ public class PartageAlbum extends HttpServlet {
 		Map<String, String[]> parameter = request.getParameterMap();
 		String userId = parameter.get("nom-cible")[0];
 		String albumId = parameter.get("album")[0];
+		int id = Integer.parseInt(albumId);
 		DAO daoAlbum = DAOFactory.getInstance().getAlbumDao();
 		DAO daoAppUser = DAOFactory.getInstance().getAppUserDao();
 
 		try {
-			Album album = (Album) daoAlbum.read(albumId);
+			Album album = (Album) daoAlbum.read(id);
 			AppUser user = (AppUser) daoAppUser.read(userId);
 			user.getMyAlbums().add(album);
 			daoAppUser.update(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getRequestDispatcher("/Albums").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

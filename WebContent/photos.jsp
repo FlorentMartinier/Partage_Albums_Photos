@@ -45,6 +45,7 @@
 						<input type="text" name="lieu" /><br/>
 							
 						<input type="hidden" name="album-nom" value="${Album.nom}" />
+						<input type="hidden" name="album-id" value="${Album.id}" />
 						
 						<label for="photo">Votre photo :</label>
 						<input type="file" name="file" accept=".jpg" /><br/>
@@ -60,6 +61,7 @@
 					<form action="SupprimerPhoto" id="different">
 						<input type="hidden" name="photoNom" value="${photo}" />
 						<input type="hidden" name="albumNom" value="${Album.nom}" />
+						<input type="hidden" name="album-id" value="${Album.id}" />
 						<input type="submit" name="supprimer" value="supprimer la photo" id="bouton" />
 					</form>
 				</c:if>

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.AppUserDao;
+import dao.DAOFactory;
 import model.AppUser;
 
 /**
@@ -23,6 +25,8 @@ public class Albums extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AppUser u =  (AppUser) request.getSession().getAttribute("connectedUser");
+		AppUserDao dao = DAOFactory.getInstance().getAppUserDao();
+		u = dao.read(u.getLogin());
 		request.setAttribute("listAlbums", u.getMyAlbums());
 		System.out.println(u.getMyAlbums().toString());
 		request.getRequestDispatcher("WEB-INF/albums.jsp").forward(request, response);

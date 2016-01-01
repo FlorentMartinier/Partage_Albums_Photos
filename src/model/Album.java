@@ -1,5 +1,6 @@
 package model;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,22 +20,25 @@ public class Album {
 	
 	@ManyToOne
 	private AppUser owner;
+	private Path path;
 
 	protected Album() {}
 	
-	public Album(String nom, AppUser owner, String description) {
+	public Album(String nom, AppUser owner, String description, Path path) {
 		this.nom=nom;
 		this.owner=owner;
 		this.description = description;
 		this.date=new java.util.Date();
 		owner.getMyAlbums().add(this);
+		this.path = path;
 	}
 	
-	public Album(String nom, AppUser owner, String description, Date date, List <AppUser> partage){
+	public Album(String nom, AppUser owner, String description, Date date, List <AppUser> partage, Path path){
 		this.nom=nom;
 		this.owner=owner;
 		this.description = description;
 		this.date=date;
+		this.path = path;
 	}
 		
 	public AppUser getOwner() {

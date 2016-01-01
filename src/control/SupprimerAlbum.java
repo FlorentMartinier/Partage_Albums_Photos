@@ -26,6 +26,7 @@ public class SupprimerAlbum extends HttpServlet {
 		AlbumDao dao = DAOFactory.getInstance().getAlbumDao();
 
 		String nomAlbum = request.getParameter("albumNom");
+		String id = request.getParameter("idAlbum");
 		AppUser u =(AppUser)request.getSession().getAttribute("connectedUser");
 		String chemin = "/home/florent/workspace/ProjetAlbumsFac/WebContent/WEB-INF/albums";
 		chemin = chemin + File.separator+ u.getLogin() +File.separator + nomAlbum;
@@ -41,9 +42,10 @@ public class SupprimerAlbum extends HttpServlet {
 			}
 		}
 		monAlbum.delete();
-		// TODO : effacer l'album créé en bdd
-		//dao.delete();
+		dao.delete(dao.read(Integer.parseInt(id)));
 		System.out.println("l'album est supprimé avec succès");
+		
+		request.getRequestDispatcher("/Albums").forward(request, response);
 
 	}
 

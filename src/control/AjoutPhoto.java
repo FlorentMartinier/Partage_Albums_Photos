@@ -46,6 +46,7 @@ public class AjoutPhoto extends HttpServlet {
 		String lieu="";
 		File file = null;
 		String album = "";
+		String id = "";
 		AppUser u =(AppUser)request.getSession().getAttribute("connectedUser");
 		
 
@@ -72,7 +73,10 @@ public class AjoutPhoto extends HttpServlet {
 				if (item.getFieldName().equals("album-nom")){
 					album = item.getString();
 				}
-				
+				if (item.getFieldName().equals("album-id")){
+					id = item.getString();
+					request.setAttribute("album", id);
+				}
 				
 				if (!item.isFormField()){
 					Path p = Paths.get(UPLOAD_DIRECTORY+u.getLogin()+File.separator+album.toString());
@@ -80,8 +84,7 @@ public class AjoutPhoto extends HttpServlet {
 					file = File.createTempFile(nomPhoto, ".jpg", uploadDir);
 					file.renameTo(new File(p.toString()));
 					item.write(file);
-					
-					request.getRequestDispatcher("photos.jsp").forward(request, response);
+					request.getRequestDispatcher("/Photos").forward(request, response);
 				}
 			}
 

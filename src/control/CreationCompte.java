@@ -35,17 +35,25 @@ public class CreationCompte extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			Map<String, String[]> attributs = request.getParameterMap();
-			String nom = attributs.get("nom")[0];
-			String prenom = attributs.get("prenom")[0];
-			String login = attributs.get("login")[0];
-			String password = attributs.get("password")[0];
+			Map<String, String[]> parameter = request.getParameterMap();
+			String nom = parameter.get("nom")[0];
+			String prenom = parameter.get("prenom")[0];
+			String login = parameter.get("login")[0];
+			String password = parameter.get("password")[0];
+			System.out.println("nom: " + nom+" prenom: " + prenom + " login: "+login + " paswword: "+password);
 			AppUserDao dao = DAOFactory.getInstance().getAppUserDao();
 			if (dao.read(login) == null) {
-				AppUser u = new AppUser(nom, prenom, login, password);
+				System.out.println("pouet");
+				AppUser u = new AppUser(login, password, nom, prenom);
+				System.out.println("AppUser Object created: " + (u != null));
 				dao.create(u);
+				System.out.println("AppUser entry created: " + (dao.read(u.getLogin()) != null));
+				System.out.println("login: " + u.getLogin() + " password: " + u.getPassword());
+				
 				System.out.println(u);
-				getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+				request.setAttribute("login", login);
+				request.setAttribute("password", password);
+				getServletContext().getRequestDispatcher("/Login").forward(request, response);
 			} else {
 				request.getSession().setAttribute("login-taken-error", true);
 				response.sendRedirect("creation-compte.jsp");

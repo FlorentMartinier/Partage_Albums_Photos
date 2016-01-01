@@ -21,12 +21,15 @@ public class SupprimerPhoto extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nomAlbum = request.getParameter("albumNom");
 		String nomPhoto = request.getParameter("photoNom");
-		AppUser u =(AppUser)request.getSession().getAttribute("connectedUser");
+		String idAlbum = request.getParameter("album-id");
+		AppUser u = (AppUser)request.getSession().getAttribute("connectedUser");
 		String chemin = nomPhoto;
 		System.out.println(chemin);
 		File maPhoto = new File(chemin);
 		maPhoto.delete();
 		System.out.println("la photo est supprimée avec succès");
+		request.setAttribute("album", idAlbum);
+		request.getRequestDispatcher("/Photos").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

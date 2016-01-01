@@ -42,9 +42,9 @@ public class CreationAlbum extends HttpServlet {
 		AppUser u = (AppUser) request.getSession().getAttribute("connectedUser");
 
 		AlbumDao dao = DAOFactory.getInstance().getAlbumDao();
-		Album a= new Album(nomAlbum, u, descriptionAlbum);
-		dao.create(a);
 		Path p = Paths.get("/home/florent/workspace/ProjetAlbumsFac/WebContent/WEB-INF/albums/" + u.getLogin().toString() + "/" + nomAlbum);
+		Album a= new Album(nomAlbum, u, descriptionAlbum, p);
+		dao.create(a);
 		File f = new File(p.toAbsolutePath().toString());
 		System.out.println(p.toAbsolutePath().toString());
 		boolean success = f.mkdirs();

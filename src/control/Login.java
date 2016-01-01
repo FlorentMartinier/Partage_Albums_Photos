@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.AppUser;
+import dao.AppUserDao;
 import dao.DAOFactory;
 
 /**
@@ -35,8 +36,9 @@ public class Login extends HttpServlet {
 		String requestedPage = "/Albums";
 		String password = request.getAttribute("password").toString();
 		String login = request.getAttribute("login").toString();
-
-		AppUser u = DAOFactory.getInstance().getAppUserDao().read(login);
+		
+		AppUserDao dao = DAOFactory.getInstance().getAppUserDao();
+		AppUser u = dao.read(login);
 		//System.out.println(u.getLogin() + "   " + u.getPassword());
 		 System.out.println(u);
 
