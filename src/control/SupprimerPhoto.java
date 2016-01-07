@@ -24,7 +24,6 @@ public class SupprimerPhoto extends HttpServlet {
 		String idAlbum = request.getParameter("album-id");
 		AppUser u = (AppUser)request.getSession().getAttribute("connectedUser");
 		String chemin = nomPhoto;
-		System.out.println(chemin);
 		File maPhoto = new File(chemin);
 		maPhoto.delete();
 		System.out.println("la photo est supprimée avec succès");

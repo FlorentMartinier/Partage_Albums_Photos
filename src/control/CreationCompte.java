@@ -13,25 +13,14 @@ import dao.AppUserDao;
 import dao.DAOFactory;
 import model.AppUser;
 
-/**
- * Servlet implementation class CreationCompte
- */
 @WebServlet("/CreationCompte")
 public class CreationCompte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public CreationCompte() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
@@ -40,17 +29,13 @@ public class CreationCompte extends HttpServlet {
 			String prenom = parameter.get("prenom")[0];
 			String login = parameter.get("login")[0];
 			String password = parameter.get("password")[0];
-			System.out.println("nom: " + nom+" prenom: " + prenom + " login: "+login + " paswword: "+password);
 			AppUserDao dao = DAOFactory.getInstance().getAppUserDao();
 			if (dao.read(login) == null) {
-				System.out.println("pouet");
 				AppUser u = new AppUser(login, password, nom, prenom);
-				System.out.println("AppUser Object created: " + (u != null));
 				dao.create(u);
 				System.out.println("AppUser entry created: " + (dao.read(u.getLogin()) != null));
 				System.out.println("login: " + u.getLogin() + " password: " + u.getPassword());
 				
-				System.out.println(u);
 				request.setAttribute("login", login);
 				request.setAttribute("password", password);
 				getServletContext().getRequestDispatcher("/Login").forward(request, response);

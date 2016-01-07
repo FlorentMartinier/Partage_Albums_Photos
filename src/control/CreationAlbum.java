@@ -3,14 +3,9 @@ package control;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,11 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Album;
 import model.AppUser;
 
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import dao.AlbumDao;
-import dao.AppUserDao;
 import dao.DAOFactory;
 
 @WebServlet("/CreationAlbum")

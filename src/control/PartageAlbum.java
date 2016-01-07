@@ -20,12 +20,10 @@ public class PartageAlbum extends HttpServlet {
 
 	public PartageAlbum() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		Map<String, String[]> parameter = request.getParameterMap();
 		String userId = parameter.get("nom-cible")[0];
 		String albumId = parameter.get("album")[0];
@@ -46,7 +44,6 @@ public class PartageAlbum extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

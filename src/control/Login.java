@@ -12,25 +12,14 @@ import model.AppUser;
 import dao.AppUserDao;
 import dao.DAOFactory;
 
-/**
- * Servlet implementation class Login
- */
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public Login() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String requestedPage = "/Albums";
@@ -39,13 +28,11 @@ public class Login extends HttpServlet {
 		
 		AppUserDao dao = DAOFactory.getInstance().getAppUserDao();
 		AppUser u = dao.read(login);
-		//System.out.println(u.getLogin() + "   " + u.getPassword());
 		 System.out.println(u);
 
 		if (u != null && u.getPassword().equals(password)) {
 			System.out.println("authentification success");
 			request.getSession().setAttribute("connectedUser", u);
-			//requestedPage = request.getAttribute("requestedPage").toString();
 		} else {
 			request.setAttribute("loginError", true);
 		}
@@ -53,13 +40,9 @@ public class Login extends HttpServlet {
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
 }

@@ -40,11 +40,11 @@
 									<input type="submit" name="supprimer" value="supprimer album" id="bouton"/>
 								</form>
 								<form id="different">
-									<a href="#oModal"><input type="button" name="partager" value="partager" id="bouton"/></a>
+									<a href="#${album.nom}"><input type="button" name="partager" value="partager" id="bouton"/></a>
 								</form>
 								
-								<div id="oModal" class="cModal">
-			  						<div>
+								<div>
+			  						<div id="${album.nom}" class="cModal">
 			  							<form id="different">
 			  								<a href="#fermer" title="Fermer la fenêtre" class="droite"><input type="button" value="x" id="bouton"/></a>
 			  							</form>

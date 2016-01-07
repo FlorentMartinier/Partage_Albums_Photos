@@ -46,8 +46,6 @@ public class ControllerFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-		
 	}
 
 
@@ -64,7 +62,6 @@ public class ControllerFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		String path = ((HttpServletRequest) request).getServletPath();
-		//System.out.println(((HttpServletRequest) request).getServletPath());
 		// parameters are set as request attributes
 		for (Map.Entry<String, String[]> p : request.getParameterMap().entrySet()) {
 			if (p.getValue().length==1)
@@ -85,7 +82,6 @@ public class ControllerFilter implements Filter {
 						
 					}
 					// Use the name of the servlet instead of its path
-					//RequestDispatcher dispatch = request.getServletContext().getNamedDispatcher(mappings[i][1]);
 					RequestDispatcher dispatch = request.getServletContext().getRequestDispatcher(mappings[i][1]);
 					dispatch.forward(request, response);
 					return;

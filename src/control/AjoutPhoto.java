@@ -30,7 +30,6 @@ import model.Photo;
 @WebServlet("/AjoutPhoto")
 public class AjoutPhoto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	// location to store file uploaded
 	private static final String UPLOAD_DIRECTORY = "/home/florent/workspace/ProjetAlbumsFac/WebContent/WEB-INF/albums/";
 
 	public AjoutPhoto() {
@@ -91,7 +90,6 @@ public class AjoutPhoto extends HttpServlet {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		//request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

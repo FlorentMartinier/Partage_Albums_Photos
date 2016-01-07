@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 
-/**
- * Servlet implementation class GetPhoto
- */
 @WebServlet("/GetPhoto")
 public class GetPhoto extends HttpServlet {
 	private static final long serialVersionUID = 1L;

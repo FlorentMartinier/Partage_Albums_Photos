@@ -27,9 +27,7 @@ public class AppUser {
 		this.prenom=prenom;
 		myAlbums = new ArrayList<Album>();
 	}
-	/*public void addAlbum(Album a){
-		myAlbums.add(a);
-	}*/
+
 	public String getLogin() {
 		return login;
 	}

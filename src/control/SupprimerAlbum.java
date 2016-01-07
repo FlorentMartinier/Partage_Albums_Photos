@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.AlbumDao;
 import dao.DAOFactory;
-import model.Album;
 import model.AppUser;
 
 @WebServlet("/SupprimerAlbum")
@@ -31,12 +30,8 @@ public class SupprimerAlbum extends HttpServlet {
 		String chemin = "/home/florent/workspace/ProjetAlbumsFac/WebContent/WEB-INF/albums";
 		chemin = chemin + File.separator+ u.getLogin() +File.separator + nomAlbum;
 		File monAlbum = new File(chemin);
-		System.out.println(monAlbum.isDirectory());
-		System.out.println(new File("/home/florent/workspace/ProjetAlbumsFac/WebContent/WEB-INF/albums").isDirectory());
 		if (monAlbum.isDirectory()) {
-			System.out.println("c'est un repertoire");
 			File []listPhotos = monAlbum.listFiles();
-			System.out.println(listPhotos.length);
 			for (int i = 0; i < listPhotos.length; i++) {
 				listPhotos[i].delete();
 			}

@@ -12,9 +12,6 @@ import dao.AppUserDao;
 import dao.DAOFactory;
 import model.AppUser;
 
-/**
- * Servlet implementation class Albums
- */
 @WebServlet("/Albums")
 public class Albums extends HttpServlet {
 	private static final long serialVersionUID = 1L;
