@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
 		
 		AppUserDao dao = DAOFactory.getInstance().getAppUserDao();
 		AppUser u = dao.read(login);
-		 System.out.println(u);
+		System.out.println(u);
 
 		if (u != null && u.getPassword().equals(password)) {
 			System.out.println("authentification success");

@@ -19,6 +19,13 @@
 		<title>Photos</title>
 	</head>
 	<body>
+		<nav>
+			<ul>
+				<li><a href="Albums">Accueil</a></li>
+				<li><a href="">Mon compte</a></li>
+				<li><a href="Deconnexion">Déconnexion</a></li>
+			</ul>
+		</nav>
 		<header>
 			<p>Partage de photos en ligne</p>
 		</header>

@@ -23,7 +23,14 @@
 			<p>Partage de photos en ligne</p>
 		</header>
 		<h1>Vos albums</h1>
-		<a href="creation-album.jsp">Ajouter un album</a>
+		<nav>
+			<ul>
+				<li><a href="Albums">Accueil</a></li>
+				<li><a href="">Mon compte</a></li>
+				<li><a href="creation-album.jsp">Ajouter un album</a></li>
+				<li><a href="Deconnexion">Déconnexion</a></li>
+			</ul>
+		</nav>
 			<c:forEach var="album" items="${listAlbums}">
 					<a href="Photos?album=${album.id}">
 						<div id="elementAlbum">
