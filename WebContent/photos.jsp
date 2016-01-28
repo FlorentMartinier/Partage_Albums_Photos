@@ -19,16 +19,16 @@
 		<title>Photos</title>
 	</head>
 	<body>
-		<nav>
-			<ul>
-				<li><a href="Albums">Accueil</a></li>
-				<li><a href="">Mon compte</a></li>
-				<li><a href="Deconnexion">Déconnexion</a></li>
-			</ul>
-		</nav>
 		<header>
 			<p>Partage de photos en ligne</p>
 		</header>
+		<nav>
+			<ul>
+				<li><a href="Albums">Accueil</a></li>
+				<li><a href="mon-compte.jsp">Mon compte</a></li>
+				<li><a href="Deconnexion">Déconnexion</a></li>
+			</ul>
+		</nav>
 		<h1>Vos photos :</h1>
 		<c:if test='${connectedUser.getLogin()==owner}'>
 			<form id="different">

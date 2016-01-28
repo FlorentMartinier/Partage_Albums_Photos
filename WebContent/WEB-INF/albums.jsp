@@ -26,7 +26,7 @@
 		<nav>
 			<ul>
 				<li><a href="Albums">Accueil</a></li>
-				<li><a href="">Mon compte</a></li>
+				<li><a href="mon-compte.jsp">Mon compte</a></li>
 				<li><a href="creation-album.jsp">Ajouter un album</a></li>
 				<li><a href="Deconnexion">Déconnexion</a></li>
 			</ul>
@@ -70,8 +70,6 @@
 							</c:if>
 						</div>
 					</a>
-					
-					
 			</c:forEach>
 	</body>
 </html>
