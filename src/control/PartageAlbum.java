@@ -28,8 +28,8 @@ public class PartageAlbum extends HttpServlet {
 		String userId = parameter.get("nom-cible")[0];
 		String albumId = parameter.get("album")[0];
 		int id = Integer.parseInt(albumId);
-		DAO daoAlbum = DAOFactory.getInstance().getAlbumDao();
-		DAO daoAppUser = DAOFactory.getInstance().getAppUserDao();
+		DAO<?, Integer> daoAlbum = DAOFactory.getInstance().getAlbumDao();
+		DAO<AppUser, String> daoAppUser = DAOFactory.getInstance().getAppUserDao();
 
 		try {
 			Album album = (Album) daoAlbum.read(id);

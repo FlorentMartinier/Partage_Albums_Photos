@@ -14,30 +14,29 @@ import javax.servlet.http.HttpServletResponse;
 import dao.AlbumDao;
 import dao.DAOFactory;
 import model.Album;
-import model.AppUser;
 
 @WebServlet("/Photos")
 public class Photos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public Photos() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public Photos() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String id = request.getParameter("album");
-		if (id == null){
+		if (id == null) {
 			id = (String) request.getAttribute("album");
 		}
 		AlbumDao dao = DAOFactory.getInstance().getAlbumDao();
 		Album album = dao.read(Integer.parseInt(id));
 		String owner = album.getOwner().getLogin();
 		String nomAlbum = album.getNom();
-		
-		String userName = ((AppUser) request.getSession().getAttribute("connectedUser")).getLogin();
-		
-		//get all photo from album
-		File folder = new File("/home/florent/workspace/ProjetAlbumsFac/WebContent/WEB-INF/albums/" + owner + "/" + nomAlbum);
+
+		// get all photo from album
+		File folder = new File(
+				"/home/florent/workspace/ProjetAlbumsFac/WebContent/WEB-INF/albums/" + owner + "/" + nomAlbum);
 		File[] photosArr = folder.listFiles();
 		List<File> photos = Arrays.asList(photosArr);
 		request.setAttribute("listPhotos", photos);
@@ -46,7 +45,8 @@ public class Photos extends HttpServlet {
 		request.getRequestDispatcher("photos.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

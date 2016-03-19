@@ -9,12 +9,14 @@ public abstract class JPADao<T,K> implements  DAO<T,K> {
 	private Class<T> entityClass;
 	
 	
+	@SuppressWarnings("unchecked")
 	public JPADao(EntityManager em) {
 		this.em=em;
 		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
 		entityClass = (Class<T>) genericSuperclass.getActualTypeArguments()[0];
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public K create(T obj) {
 		em.getTransaction().begin();

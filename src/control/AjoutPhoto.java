@@ -6,10 +6,8 @@ import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,15 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import dao.AlbumDao;
-import dao.DAOFactory;
-import model.Album;
 import model.AppUser;
-import model.Photo;
 
 @WebServlet("/AjoutPhoto")
 public class AjoutPhoto extends HttpServlet {
@@ -41,8 +34,6 @@ public class AjoutPhoto extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		String nomPhoto="";
-		String description="";
-		String lieu="";
 		File file = null;
 		String album = "";
 		String id = "";
@@ -62,12 +53,6 @@ public class AjoutPhoto extends HttpServlet {
 			for (FileItem item : items){
 				if (item.getFieldName().equals("nomPhoto")){
 					nomPhoto = item.getString();
-				}
-				if (item.getFieldName().equals("description")){
-					description = item.getString();
-				}
-				if (item.getFieldName().equals("lieu")){
-					lieu = item.getString();
 				}
 				if (item.getFieldName().equals("album-nom")){
 					album = item.getString();
