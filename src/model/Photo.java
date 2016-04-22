@@ -15,6 +15,7 @@ public class Photo {
 	@Id
 	private Path p;
 	
+
 	public Photo(Path p, AppUser createur, String nom, Date date, String description, String lieu){
 		this.createur = createur;
 		this.nom = nom;
@@ -55,5 +56,37 @@ public class Photo {
 	
 	public AppUser getOwner(){
 		return createur;
+	}
+
+	public AppUser getCreateur() {
+		return createur;
+	}
+	
+	public void setCreateur(AppUser createur) {
+		this.createur = createur;
+	}
+	
+	public Date getDate() {
+		return date;
+	}
+	
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	public String getLieu() {
+		return lieu;
+	}
+	
+	public void setLieu(String lieu) {
+		this.lieu = lieu;
 	}
 }
